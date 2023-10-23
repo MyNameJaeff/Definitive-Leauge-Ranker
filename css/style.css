@@ -1,0 +1,58 @@
+.champDiv{
+    width: 100%;
+    height: fit-content;
+}
+.champDiv>p{
+    display: flex;
+    align-items: center;
+}
+.champDiv>div{
+    display: flex;
+    flex-wrap: wrap;
+}
+.champIcon{
+    width: 2%;
+}
+.splashArt{
+    width: 50vw;
+}
+.missingImg{
+    width: 8%;
+}
+.missingImgIcon{
+    width: 2%;
+}
+main{
+    margin-top: 10vh;
+}
+#mainDiv>div{
+    display: flex;
+    flex-wrap: wrap;
+}
+#mainDiv>div>div{
+    width: 100%;
+}
+.skinDiv{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+.skinDiv>div{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+.skinDiv>div>div{
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: turquoise;
+}
+.a{
+    width: fit-content;
+}

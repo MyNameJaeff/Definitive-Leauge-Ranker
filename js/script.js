@@ -1,12 +1,4 @@
-/* import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, set, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-
-const appSettings = {
-    databaseURL: "https://leaugerater-default-rtdb.europe-west1.firebasedatabase.app/"
-}
-const app = initializeApp(appSettings);
-const database = getDatabase(app);
- */
+/* import {printSpecific, updateScore} from "./printSpecific.js"; */
 const getChampList = async () => {
     let req = await fetch("http://ddragon.leagueoflegends.com/cdn/13.20.1/data/en_US/champion.json");
     let data = await req.json();
@@ -31,12 +23,14 @@ const addToList = async () => {
         $(`#dropdown-menu`).append(element);
     })
 }
-const updateScore = async(skin) => {
-    let value = $(`#${skin}`).val();
-    $(`#${skin}`).prop("disabled", true);
-    localStorage.setItem(skin, value);
+const getScores = async (whatPrint) => {
+    await(printSpecific([whatPrint]));
+    Object.keys(localStorage).map((skin) => {
+        $(`#${skin}`).val(localStorage[skin]);
+        $(`#${skin}`).prop("disabled", true);
+    })
 }
 
-
 addToList();
-printSpecific(["Aatrox"]);
+//printSpecific(["Aatrox"]);
+getScores("Aatrox");

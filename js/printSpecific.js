@@ -26,4 +26,15 @@ const printSpecific = async (whatChamp) => {
         $(`#${skinName}>div`).append(element);
         $(`#${skinName}`).append(`<h4>${skin.name}</h4>`);
     })
+    alert(whatChamp);
+    updateScore(whatChamp);
 }
+const updateScore = async(skin) => {
+    let value = $(`#${skin}`).val();
+    /* set(ref(database, 'skins/' + skin), {
+        rating: value
+    }); */
+    $(`#${skin}`).prop("disabled", true);
+    localStorage.setItem(skin, value);
+}
+/* export {updateScore, printSpecific} */

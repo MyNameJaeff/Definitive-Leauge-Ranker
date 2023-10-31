@@ -1,4 +1,6 @@
 /* import {printSpecific, updateScore} from "./printSpecific.js"; */
+localStorage.setItem("firstTime", true);
+
 const getChampList = async () => {
     let req = await fetch("http://ddragon.leagueoflegends.com/cdn/13.20.1/data/en_US/champion.json");
     let data = await req.json();
@@ -21,16 +23,23 @@ const addToList = async () => {
         let element = $(`<li id="item-${champName}" ><p class="dropdown-item" class="test">${champName}</p></li>`);
         element.click(() => printSpecific(champName));
         $(`#dropdown-menu`).append(element);
+        //console.log(champName);
+        if(localStorage.getItem("firstTime") == "true"){
+            localStorage.setItem(champName, 1);
+        }
     })
+    localStorage.setItem("firstTime", false);
+    console.log(localStorage);
+    getScores("Aatrox");
 }
 const getScores = async (whatPrint) => {
     await(printSpecific([whatPrint]));
     Object.keys(localStorage).map((skin) => {
         $(`#${skin}`).val(localStorage[skin]);
         $(`#${skin}`).prop("disabled", true);
+        $(`#${whatPrint}Total`).html(localStorage.getItem(whatPrint));
     })
 }
 
 addToList();
 //printSpecific(["Aatrox"]);
-getScores("Aatrox");

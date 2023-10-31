@@ -26,7 +26,6 @@ const printSpecific = async (whatChamp) => {
         $(`#${skinName}>div`).append(element);
         $(`#${skinName}`).append(`<h4>${skin.name}</h4>`);
     })
-    alert(whatChamp);
     updateScore(whatChamp);
 }
 const updateScore = async(skin) => {
@@ -38,7 +37,8 @@ const updateScore = async(skin) => {
     }); */
     $(`#${skin.id}`).prop("disabled", true);
     localStorage.setItem(skin.id, value);
-    let tot = parseInt(localStorage.getItem("Aatrox"));
+    console.log(skin, champ, value);
+    let tot = parseInt(localStorage.getItem(skin));
     tot += parseInt(value);
     $(`#${champ}Total`).html(tot);
     localStorage.setItem(champ, tot);

@@ -1,6 +1,9 @@
 /* import {printSpecific, updateScore} from "./printSpecific.js"; */
-localStorage.setItem("firstTime", true);
-
+const reset = () => {
+    localStorage.setItem("firstTime", true);
+    localStorage.clear();    
+}
+//reset();
 const getChampList = async () => {
     let req = await fetch("http://ddragon.leagueoflegends.com/cdn/13.20.1/data/en_US/champion.json");
     let data = await req.json();
@@ -25,7 +28,7 @@ const addToList = async () => {
         $(`#dropdown-menu`).append(element);
         //console.log(champName);
         if(localStorage.getItem("firstTime") == "true"){
-            localStorage.setItem(champName, 1);
+            localStorage.setItem(champName, 0);
         }
     })
     localStorage.setItem("firstTime", false);

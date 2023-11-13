@@ -39,10 +39,16 @@ main{
     flex-direction: column;
     margin-bottom: 2%;
 }
+.skinDiv>h4{
+    margin-left: 2vh;
+}
 .skinDiv>div{
-    width: 100vw;
+    width: 96vw;
     display: flex;
     align-items: center;
+    border: 1px solid black;
+    padding: 1vh;
+    margin: 1vh;
 }
 .skinDiv>div>div{
     width: 50vw;
@@ -51,7 +57,6 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: turquoise;
 }
 .a{
     width: fit-content;

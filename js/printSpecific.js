@@ -26,4 +26,8 @@ const printSpecific = async (whatChamp) => {
         $(`#${skinName}>div`).append(element);
         $(`#${skinName}`).append(`<h4>${skin.name}</h4>`);
     })
+    Object.entries(localStorage).map(item => {
+        $(`#${item[0]}`).prop("disabled", true);
+        $(`#${item[0]}`).val(item[1]);
+    });
 }
